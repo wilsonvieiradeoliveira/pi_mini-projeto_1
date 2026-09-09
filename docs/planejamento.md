@@ -19,7 +19,7 @@ Lista de oito dicionários no `app.py`: id, nome, categoria, descrição, preço
 
 Jinja2: todas as páginas herdam `base.html`; `for` gera os cards; `if` controla promoção, disponibilidade, destaque e lista vazia. Ao adicionar um produto à lista, catálogo e categorias são atualizados automaticamente.
 
-Bootstrap 5: navbar recolhível no celular, grid responsivo, cards, badges e formulários de busca GET. CSS próprio para identidade visual azul-escura e verde-lima.
+Bootstrap 5: navbar recolhível no celular, grid responsivo, cards, badges e formulários de busca GET. CSS próprio para identidade visual verde-escura e verde-lima.
 
 ## Limites
 

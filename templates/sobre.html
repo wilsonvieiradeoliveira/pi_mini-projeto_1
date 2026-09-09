@@ -2,19 +2,19 @@
 {% block title %}Sobre | ByteStore{% endblock %}
 {% block content %}
 <section class="container section-space">
-  <div class="row g-5 align-items-center">
-    <div class="col-lg-7"><p class="eyebrow">PRAZER, SOMOS A BYTESTORE</p><h1>Tecnologia que acompanha <span class="text-accent">o seu ritmo.</span></h1><p class="lead mt-4">Do primeiro trabalho da faculdade ? pr?xima partida com os amigos: todo bom setup come?a com escolhas que fazem sentido para voc?.</p><p class="text-secondary">Reunimos notebooks, perif?ricos e componentes em um cat?logo f?cil de explorar. Nossa proposta ? simples: mostrar as informa??es que ajudam voc? a conhecer cada produto, sem complica??o.</p><a class="btn btn-dark mt-3" href="{{ url_for('catalogo') }}">Conhecer o cat?logo <span aria-hidden="true">?</span></a></div>
+  <div class="row gx-4 gy-5 align-items-center">
+    <div class="col-lg-7"><p class="eyebrow">PRAZER, SOMOS A BYTESTORE</p><h1>Tecnologia que acompanha <span class="text-accent">o seu ritmo.</span></h1><p class="lead mt-4">Do primeiro trabalho da faculdade à próxima partida com os amigos: todo bom setup começa com escolhas que fazem sentido para você.</p><p class="text-secondary">Reunimos notebooks, periféricos e componentes em um catálogo fácil de explorar. Nossa proposta é simples: mostrar as informações que ajudam você a conhecer cada produto, sem complicação.</p><a class="btn btn-dark mt-3" href="{{ url_for('catalogo') }}">Conhecer o catálogo <span aria-hidden="true">↗</span></a></div>
     <div class="col-lg-5"><div class="about-note"><span class="eyebrow">NOSSA IDEIA</span><p class="display-6 fw-bold mt-4">Um bom setup abre novas possibilidades.</p><hr><p class="mb-0">Para estudar, criar, trabalhar e jogar. Encontre o que combina com o seu momento.</p></div></div>
   </div>
 </section>
 <section class="container pb-5" aria-labelledby="principios"><h2 id="principios" class="mb-4">O que nos move</h2><div class="row g-4">
-  {% for numero, titulo, texto in [('01', 'Clareza em cada escolha', 'Categorias bem organizadas e descri??es diretas para voc? encontrar o que procura.'), ('02', 'Seu jeito de usar', 'Uma sele??o que combina produtividade, criatividade e divers?o.'), ('03', 'Tecnologia acess?vel', 'Um espa?o simples de navegar, seja pelo computador ou pelo celular.')] %}
+  {% for numero, titulo, texto in [('01', 'Clareza em cada escolha', 'Categorias bem organizadas e descrições diretas para você encontrar o que procura.'), ('02', 'Seu jeito de usar', 'Uma seleção que combina produtividade, criatividade e diversão.'), ('03', 'Tecnologia acessível', 'Um espaço simples de navegar, seja pelo computador ou pelo celular.')] %}
   <div class="col-md-4"><article class="principle h-100"><span class="eyebrow">{{ numero }}</span><h3 class="h5 mt-3">{{ titulo }}</h3><p class="text-secondary mb-0">{{ texto }}</p></article></div>
   {% endfor %}
 </div></section>
 <section class="container section-space pt-4" aria-labelledby="duvidas"><div class="row g-4"><div class="col-md-5"><p class="eyebrow">BOM SABER</p><h2 id="duvidas">Antes de explorar.</h2></div><div class="col-md-7 faq">
-  <details open><summary>Posso comprar os produtos?</summary><p>A ByteStore ? uma loja demonstrativa criada como projeto educacional. Os produtos, pre?os, descontos e estoques s?o fict?cios; n?o h? compras ou pagamentos.</p></details>
-  <details><summary>Como encontro um produto?</summary><p>Abra o Cat?logo e use a busca por nome ou descri??o. Voc? tamb?m pode selecionar uma categoria. Em Ofertas, aparecem os produtos dispon?veis com pre?o reduzido.</p></details>
-  <details><summary>As imagens representam os modelos?</summary><p>As fotografias s?o ilustrativas das categorias de produtos. Os nomes de modelos e suas especifica??es foram criados para este cat?logo.</p></details>
+  <details open><summary>Posso comprar os produtos?</summary><p>A ByteStore é uma loja demonstrativa criada como projeto educacional. Os produtos, preços, descontos e estoques são fictícios; não há compras ou pagamentos.</p></details>
+  <details><summary>Como encontro um produto?</summary><p>Abra o Catálogo e use a busca por nome ou descrição. Você também pode selecionar uma categoria. Em Ofertas, aparecem os produtos disponíveis com preço reduzido.</p></details>
+  <details><summary>As imagens representam os modelos?</summary><p>As fotografias são ilustrativas das categorias de produtos. Os nomes de modelos e suas especificações foram criados para este catálogo.</p></details>
 </div></div></section>
 {% endblock %}
