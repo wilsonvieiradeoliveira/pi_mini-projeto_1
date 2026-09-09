@@ -6,7 +6,7 @@ Loja demonstrativa de informática desenvolvida para o Mini-projeto 1 da Semana 
 
 ## Tecnologias
 
-- Python 3.13 usado na validação; Python 3.9 ou superior para executar.
+- Python 3.13 usado na validação. Use Python 3.10 ou superior para compatibilidade com todas as versões de `requirements-lock.txt`.
 - Flask 3.1.3: rotas e renderização das páginas.
 - Jinja2: herança de templates, laços `for`, condições `if` e filtros.
 - Bootstrap 5.3.8: navbar recolhível, grid responsivo, cards, badges e controles.
@@ -29,7 +29,7 @@ Se preferir ativá-lo no PowerShell, use `.\.venv\Scripts\Activate.ps1`. No Prom
 
 Abra **http://127.0.0.1:5000**. Encerre o servidor com `Ctrl+C`.
 
-O ambiente `.venv` já foi preparado nesta máquina. Nele, basta executar `.\.venv\Scripts\python.exe app.py`. O servidor local criado durante a implementação pode já estar usando a porta 5000; nesse caso, acesse o endereço sem iniciar outra instância.
+O ambiente `.venv` já foi preparado nesta máquina. Nele, basta executar `.\.venv\Scripts\python.exe app.py`. A instância de revisão foi iniciada em **http://127.0.0.1:5050**, porque havia outro servidor na porta 5000. Para usar a porta alternativa, execute `.\.venv\Scripts\python.exe -m flask --app app run --port 5050`. Após editar Python ou templates, reinicie a instância correspondente.
 
 ### Linux ou macOS
 
@@ -119,9 +119,11 @@ Os testes verificam rotas, arquivos estáticos, catálogo, filtros combinados, a
 
 O repositório Git foi criado localmente, com commits em etapas reais. `.gitignore` exclui ambiente virtual, arquivos temporários, segredos e a apostila de referência.
 
-**A publicação no GitHub está pendente da escolha da conta/repositório e da aprovação do usuário.** Não existe URL de repositório publicada nesta entrega.
+Repositório público: [wilsonvieiradeoliveira/pi_mini-projeto_1](https://github.com/wilsonvieiradeoliveira/pi_mini-projeto_1).
 
-Depois de escolher o destino, será possível adicionar o remoto e enviar a branch `main`. GitHub armazena o código; GitHub Pages não executa este servidor Flask. A hospedagem da aplicação exige um serviço compatível com Python e é uma decisão separada.
+A revisão confirmou a publicação da versão `d1d12f4`. Alterações locais posteriores precisam ser enviadas ao GitHub para fazer parte da entrega remota.
+
+O remoto `origin` está configurado e a branch principal é `main`. GitHub armazena o código; GitHub Pages não executa este servidor Flask. A apostila pede o código no GitHub, não a hospedagem pública do servidor; hospedar a aplicação é uma decisão opcional e separada.
 
 ## Referências
 

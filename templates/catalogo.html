@@ -11,7 +11,7 @@
     <div class="col-md-4"><label for="categoria" class="form-label">Categoria</label><select class="form-select" name="categoria" id="categoria"><option value="">Todas as categorias</option>{% if categoria and categoria not in categorias %}<option selected value="{{ categoria }}">{{ categoria }} (não encontrada)</option>{% endif %}{% for item in categorias %}<option value="{{ item }}" {% if categoria == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></div>
     <div class="col-md-2 d-grid"><button class="btn btn-dark" type="submit">Buscar</button></div>
   </form>
-  <div class="d-flex flex-wrap justify-content-between gap-2 my-4"><p class="mb-0 small text-secondary">{{ produtos|length }} {% if produtos|length == 1 %}produto encontrado{% else %}produtos encontrados{% endif %}{% if busca %} para “{{ busca }}”{% endif %}</p>{% if busca or categoria %}<a class="text-link small" href="{{ url_for('catalogo') }}">Limpar filtros ×</a>{% endif %}</div>
+  <div class="d-flex flex-wrap justify-content-between gap-2 my-4"><p class="mb-0 small text-secondary search-summary">{{ produtos|length }} {% if produtos|length == 1 %}produto encontrado{% else %}produtos encontrados{% endif %}{% if busca %} para “{{ busca }}”{% endif %}</p>{% if busca or categoria %}<a class="text-link small" href="{{ url_for('catalogo') }}">Limpar filtros ×</a>{% endif %}</div>
   {% include "partials/produtos.html" %}
 </section>
 {% endblock %}

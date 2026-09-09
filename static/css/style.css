@@ -804,3 +804,9 @@ h3 {
 
 }
 
+
+/* Keep long search terms inside narrow result layouts. */
+.search-summary {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

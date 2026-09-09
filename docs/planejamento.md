@@ -23,7 +23,7 @@ Bootstrap 5: navbar recolhível no celular, grid responsivo, cards, badges e for
 
 ## Limites
 
-Produtos, preços e disponibilidade fictícios. Sem pagamento, cadastro, banco de dados ou envio de mensagens. Escopo adequado à Semana 6. Publicação no GitHub será discutida após a revisão local; não há aprovação docente registrada.
+Produtos, preços e disponibilidade fictícios. Sem pagamento, cadastro, banco de dados ou envio de mensagens. Escopo adequado à Semana 6. Repositório público confirmado em https://github.com/wilsonvieiradeoliveira/pi_mini-projeto_1. Não há aprovação docente registrada.
 
 ## Etapas
 
