@@ -3,9 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}ByteStore{% endblock %}</title>
+  <meta name="description" content="Explore notebooks, perif?ricos e componentes na ByteStore, uma loja demonstrativa de inform?tica.">
+  <meta name="theme-color" content="#172c26">
+  <title>{% block title %}ByteStore ? Seu pr?ximo upgrade{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <main>{% block content %}{% endblock %}</main>
+  <a class="skip-link" href="#conteudo">Pular para o conte?do</a>
+  <div class="announcement text-center">SEU SETUP, SUA PR?XIMA CONQUISTA <span class="d-none d-sm-inline">&nbsp; ? &nbsp; Explore novas possibilidades.</span></div>
+  <header>
+    <nav class="navbar navbar-expand-md" aria-label="Navega??o principal">
+      <div class="container">
+        <a class="navbar-brand brand" href="{{ url_for('inicio') }}"><span class="brand-mark" aria-hidden="true">b.</span>ByteStore<span class="brand-dot">?</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir ou fechar menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav mx-auto gap-md-4">
+            {% for endpoint, label in [('inicio', 'In?cio'), ('catalogo', 'Cat?logo'), ('ofertas', 'Ofertas'), ('sobre', 'Sobre')] %}
+            <li class="nav-item"><a class="nav-link {% if request.endpoint == endpoint %}active{% endif %}" {% if request.endpoint == endpoint %}aria-current="page"{% endif %} href="{{ url_for(endpoint) }}">{{ label }}</a></li>
+            {% endfor %}
+          </ul>
+          <a href="{{ url_for('catalogo') }}" class="nav-explore">Encontre seu upgrade <span aria-hidden="true">?</span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main id="conteudo" tabindex="-1">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-4">
+        <div><a class="brand footer-brand" href="{{ url_for('inicio') }}">ByteStore</a><p class="mt-2 mb-0">Tecnologia para o seu pr?ximo passo.</p></div>
+        <nav class="d-flex gap-4 align-items-start" aria-label="Navega??o do rodap?"><a href="{{ url_for('catalogo') }}">Cat?logo</a><a href="{{ url_for('ofertas') }}">Ofertas</a><a href="{{ url_for('sobre') }}">Sobre</a></nav>
+      </div>
+      <div class="footer-bottom">Loja demonstrativa ? Produtos e pre?os fict?cios. N?o realizamos vendas.</div>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='vendor/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
