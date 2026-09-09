@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}P?gina n?o encontrada | ByteStore{% endblock %}
+{% block content %}<section class="container section-space"><div class="empty-state"><p class="eyebrow">ERRO 404</p><h1>Esse caminho n?o existe.</h1><p class="lead">Mas seu pr?ximo upgrade pode estar no cat?logo.</p><a class="btn btn-dark" href="{{ url_for('catalogo') }}">Explorar cat?logo <span aria-hidden="true">?</span></a></div></section>{% endblock %}

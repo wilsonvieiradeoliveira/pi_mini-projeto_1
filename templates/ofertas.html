@@ -1,3 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Ofertas | ByteStore{% endblock %}
-{% block content %}<section class="container section-space"><h1>Mais tecnologia. Menos investimento.</h1><p>Confira os produtos em promo??o.</p></section>{% endblock %}
+{% block content %}
+<section class="page-top offers-top"><div class="container section-space">
+  <nav aria-label="Caminho"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('inicio') }}">In?cio</a></li><li class="breadcrumb-item active" aria-current="page">Ofertas</li></ol></nav>
+  <p class="eyebrow">ESCOLHAS QUE VALEM O UPGRADE</p><h1>Mais tecnologia.<br>Menos investimento.</h1><p class="lead mb-0 mt-3">Uma sele??o especial de produtos dispon?veis com pre?o reduzido.</p>
+</div></section>
+<section class="container section-space" aria-labelledby="ofertas-titulo">
+  <div class="section-heading"><div><h2 id="ofertas-titulo">Encontre sua pr?xima escolha.</h2><p class="small text-secondary mb-0">{{ produtos|length }} {% if produtos|length == 1 %}oferta dispon?vel{% else %}ofertas dispon?veis{% endif %} ? Valores demonstrativos</p></div><a class="text-link" href="{{ url_for('catalogo') }}">Ver cat?logo completo <span aria-hidden="true">?</span></a></div>
+  {% include "partials/produtos.html" %}
+</section>
+{% endblock %}

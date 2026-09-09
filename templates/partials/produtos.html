@@ -1,0 +1,31 @@
+{# Cards compartilhados: o for gera os itens; os ifs mudam pre?o e status. #}
+{% if produtos %}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+  {% for produto in produtos %}
+  <div class="col">
+    <article class="card product-card h-100" id="produto-{{ produto.id }}" aria-labelledby="nome-{{ produto.id }}">
+      <div class="product-photo">
+        <img src="{{ url_for('static', filename='img/' ~ produto.imagem) }}" alt="Imagem ilustrativa de {{ produto.categoria|lower }}" width="700" height="525" loading="lazy">
+        {% if not produto.disponivel %}<span class="badge product-badge badge-unavailable">Indispon?vel</span>
+        {% elif em_oferta(produto) %}<span class="badge product-badge badge-sale">{{ produto|desconto }}% OFF</span>
+        {% elif produto.destaque %}<span class="badge product-badge badge-featured">Destaque</span>{% endif %}
+      </div>
+      <div class="card-body d-flex flex-column">
+        <p class="product-category">{{ produto.categoria }}</p>
+        <h3 class="card-title h6" id="nome-{{ produto.id }}">{{ produto.nome }}</h3>
+        <p class="product-description">{{ produto.descricao }}</p>
+        <div class="product-pricing mt-auto">
+          {% if em_oferta(produto) %}<p class="old-price"><span class="visually-hidden">De </span><del>{{ produto.preco_anterior|moeda }}</del></p>{% else %}<p class="old-price price-label">Pre?o demonstrativo</p>{% endif %}
+          <p class="price"><span class="visually-hidden">Pre?o: </span>{{ produto.preco|moeda }}</p>
+          <p class="availability {% if not produto.disponivel %}unavailable{% endif %}"><span aria-hidden="true">?</span> {% if produto.disponivel %}Dispon?vel no cat?logo{% else %}Temporariamente indispon?vel{% endif %}</p>
+        </div>
+        <details class="product-details"><summary>Ver especifica??es <span aria-hidden="true">+</span></summary><p>{{ produto.especificacoes }}</p></details>
+      </div>
+    </article>
+  </div>
+  {% endfor %}
+</div>
+<p class="image-note">Imagens ilustrativas ? Modelos, pre?os e disponibilidade fict?cios.</p>
+{% else %}
+<div class="empty-state"><span class="eyebrow">VAMOS TENTAR DE NOVO?</span><h2 class="mt-3">Nenhum produto encontrado.</h2><p class="text-secondary">Explore outras categorias ou use um termo diferente na busca.</p><a class="btn btn-dark" href="{{ url_for('catalogo') }}">Ver todo o cat?logo</a></div>
+{% endif %}

@@ -1,3 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Cat?logo | ByteStore{% endblock %}
-{% block content %}<section class="container section-space"><h1>Seu pr?ximo upgrade est? aqui.</h1><p>Explore nosso cat?logo de inform?tica.</p></section>{% endblock %}
+{% block content %}
+<section class="page-top"><div class="container section-space">
+  <nav aria-label="Caminho"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('inicio') }}">In?cio</a></li><li class="breadcrumb-item active" aria-current="page">Cat?logo</li></ol></nav>
+  <p class="eyebrow">ENCONTRE SEU PR?XIMO UPGRADE</p><h1>Seu setup. Suas escolhas.</h1><p class="lead mb-0 mt-3">Explore notebooks, perif?ricos e muito mais para o seu dia a dia.</p>
+</div></section>
+<section class="container section-space" aria-label="Produtos do cat?logo">
+  <form method="get" action="{{ url_for('catalogo') }}" class="filter-panel row g-3 align-items-end" role="search">
+    <div class="col-md-6"><label for="busca" class="form-label">O que voc? procura?</label><input class="form-control" type="search" id="busca" name="q" value="{{ busca }}" placeholder="Busque por produto ou caracter?stica"></div>
+    <div class="col-md-4"><label for="categoria" class="form-label">Categoria</label><select class="form-select" name="categoria" id="categoria"><option value="">Todas as categorias</option>{% if categoria and categoria not in categorias %}<option selected value="{{ categoria }}">{{ categoria }} (n?o encontrada)</option>{% endif %}{% for item in categorias %}<option value="{{ item }}" {% if categoria == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></div>
+    <div class="col-md-2 d-grid"><button class="btn btn-dark" type="submit">Buscar</button></div>
+  </form>
+  <div class="d-flex flex-wrap justify-content-between gap-2 my-4"><p class="mb-0 small text-secondary">{{ produtos|length }} {% if produtos|length == 1 %}produto encontrado{% else %}produtos encontrados{% endif %}{% if busca %} para ?{{ busca }}?{% endif %}</p>{% if busca or categoria %}<a class="text-link small" href="{{ url_for('catalogo') }}">Limpar filtros ?</a>{% endif %}</div>
+  {% include "partials/produtos.html" %}
+</section>
+{% endblock %}
